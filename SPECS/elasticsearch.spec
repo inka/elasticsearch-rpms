@@ -2,7 +2,7 @@
 %define base_install_dir %{_javadir}{%name}
 
 Name:           elasticsearch
-Version:        0.19.0
+Version:        0.19.8
 Release:        1%{?dist}
 Summary:        A distributed, highly available, RESTful search engine
 
@@ -16,8 +16,7 @@ Source3:        config-logging.yml
 Source4:        sysconfig-elasticsearch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:       jpackage-utils
-Requires:       java
+Requires:       jdk
 
 Requires(post): chkconfig initscripts
 Requires(pre):  chkconfig initscripts
@@ -117,6 +116,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Jul 11 2012 ingo.kampe@kreuzwerker.de 0.19.8-1
+- New Upstream version. Removed jpackage dependency.
+
 * Sun Mar 11 2012 tavisto@tavisto.net 0.19.0-1
 - New Upstream version, as well as splitting out the plugins into their own rpms
 
