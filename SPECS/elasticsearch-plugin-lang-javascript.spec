@@ -1,11 +1,11 @@
 %define debug_package %{nil}
-%define base_install_dir %{_javadir}/%{name}
+%define base_install_dir %{_javadir}/elasticsearch
 
 # Avoid running brp-java-repack-jars
 %define __os_install_post %{nil}
 
 Name:           elasticsearch-plugin-lang-javascript
-Version:        1.1.0
+Version:        1.2.0
 Release:        1%{?dist}
 Summary:        ElasticSearch plugin to use Javascript for script execution
 
@@ -13,7 +13,7 @@ Group:          System Environment/Daemons
 License:        ASL 2.0
 URL:            https://github.com/elasticsearch/elasticsearch-lang-javascript
 
-Source0:        https://github.com/downloads/elasticsearch/elasticsearch-lang-javascript/elasticsearch-lang-javascript-1.1.0.zip
+Source0:        https://github.com/downloads/elasticsearch/elasticsearch-lang-javascript/elasticsearch-lang-javascript-1.2.0.zip
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 cd %{name}-%{version}
 %{__mkdir} -p %{buildroot}/%{base_install_dir}/plugins
 %{__install} -D -m 755 plugins/lang-javascript/elasticsearch-lang-javascript-%{version}.jar %{buildroot}/%{base_install_dir}/plugins/lang-javascript/elasticsearch-lang-javascript.jar
-%{__install} -D -m 755 plugins/lang-javascript/rhino-1.7R3.jar -t %{buildroot}/%{base_install_dir}/plugins/lang-javascript/
+%{__install} -D -m 755 plugins/lang-javascript/rhino-1.7R4.jar -t %{buildroot}/%{base_install_dir}/plugins/lang-javascript/
 
 %files
 %defattr(-,root,root,-)
@@ -46,6 +46,9 @@ cd %{name}-%{version}
 %{base_install_dir}/plugins/lang-javascript/*
 
 %changelog
+* Sun Sep 26 2012 ingo.kampe@kreuzwerker.de 1.2.0-1
+- New Upstream version.
+
 * Wed Mar 21 2012 Tavis Aitken tavisto@tavisto.net 1.1.0-1
 - Tweaked to make the package conform to fedora build specs
 

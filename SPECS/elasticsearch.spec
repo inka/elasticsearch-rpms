@@ -1,8 +1,8 @@
 %define debug_package %{nil}
-%define base_install_dir %{_javadir}{%name}
+%define base_install_dir %{_javadir}/elasticsearch
 
 Name:           elasticsearch
-Version:        0.19.8
+Version:        0.19.9
 Release:        1%{?dist}
 Summary:        A distributed, highly available, RESTful search engine
 
@@ -116,6 +116,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Sep 26 2012 ingo.kampe@kreuzwerker.de 0.19.9-1
+- New Upstream version.
+
 * Sun Jul 11 2012 ingo.kampe@kreuzwerker.de 0.19.8-1
 - New Upstream version. Removed jpackage dependency.
 
